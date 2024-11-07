@@ -1,26 +1,26 @@
 const db = require("../config/db");
 
-// Ambil Semua Pegawai
+// Ambil semua pegawai
 exports.getAllEmployees = (callback) => {
-    db.query("SELECT * FROM pegawai", callback);
-}
+  db.query("SELECT * FROM pegawai", callback);
+};
 
-// Tambah Data Pegawai
+// Tambah pegawai
 exports.addEmployee = (data, callback) => {
-    db.query("INSERT INTO pegawai SET ?", data, callback);
-}
+  db.query("INSERT INTO pegawai SET ?", data, callback);
+};
 
 // Dapatkan detail pegawai berdasarkan ID
 exports.getEmployeeById = (id, callback) => {
-    db.query("SELECT * FROM pegawai WHERE id = ?", [id], callback);
-}
+  db.query("SELECT * FROM pegawai WHERE id = ?", [id], callback);
+};
 
-// Update Data Pegawai
+// Update pegawai
 exports.updateEmployee = (id, data, callback) => {
-    db.query("UPDATE pegawai SET ? WHERE id = ?", [data, id], callback);
-}
+  db.query("UPDATE pegawai SET ? WHERE id = ?", [data, id], callback);
+};
 
-// Hapus Data Pegawai
+// Hapus pegawai
 exports.deleteEmployee = (id, callback) => {
-    db.query("DELETE FROM pegawai WHERE id = ?", [id], callback);
-}
+  db.query("DELETE FROM pegawai WHERE id = ?", [id], callback);
+};

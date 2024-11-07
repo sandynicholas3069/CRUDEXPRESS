@@ -3,7 +3,7 @@ const mysql = require("mysql2");
 const db = mysql.createConnection({
     host: "localhost",
     user: "root", // Menyesuaikan nama user pada database
-    password: "", // Menyesuaikan passowrd pada database
+    password: "", // Menyesuaikan password pada database
     database: "toko", // Menyesuaikan nama database yang ingin dibuat
 })
 
