@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Pegawai</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen py-20">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-green-400 text-center mb-8">
+            WEBSITE DATABASE PEGAWAI Z-TECH SOFTWARE HOUSE
+        </h1>
+        <h2 class="text-center text-3xl font-bold text-green-400">DAFTAR PEGAWAI</h2>
+        <a href="/add_employee" class="bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition">Tambah Pegawai</a>
+    </div>
+    <div class="bg-gray-900 shadow-lg rounded-lg p-8 overflow-x-auto">
+        <table class="min-w-full max-w-full table-auto bg-gray-800 text-green-300 rounded-md">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2 border-b">ID</th>
+                    <th class="px-4 py-2 border-b">Nama</th>
+                    <th class="px-4 py-2 border-b">Jenis Kelamin</th>
+                    <th class="px-4 py-2 border-b">Tanggal Lahir</th>
+                    <th class="px-4 py-2 border-b">Alamat</th>
+                    <th class="px-4 py-2 border-b">Nomor telepon</th>
+                    <th class="px-4 py-2 border-b">Email</th>
+                    <th class="px-4 py-2 border-b">Jabatan</th>
+                    <th class="px-4 py-2 border-b">Gaji</th>
+                    <th class="px-4 py-2 border-b">Ubah</th>
+                    <th class="px-4 py-2 border-b">Hapus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% employees.forEach(employee => { %>
+                <tr>
+                    <td class="px-4 py-2 border-b"><%= employee.id %></td>
+                    <td class="px-4 py-2 border-b"><%= employee.nama %></td>
+                    <td class="px-4 py-2 border-b">
+                        <% if (employee.jenis_kelamin === "L") { %> Laki-laki <% } else if (employee.jenis_kelamin === 'P') { %> Perempuan <% } %>
+                    </td>
+                    <td class="px-4 py-2 border-b"><%= employee.tanggal_lahir %></td></td>
+                    <td class="px-4 py-2 border-b"><%= employee.alamat %></td>
+                    <td class="px-4 py-2 border-b"><%= employee.nomor_telepon %></td>
+                    <td class="px-4 py-2 border-b"><%= employee.email %></td>
+                    <td class="px-4 py-2 border-b"><%= employee.posisi %></td>
+                    <td class="px-4 py-2 border-b"><%= employee.gaji %></td>
+                    <td class="px-4 py-2 border-b">
+                        <a href="/edit_employee/<%= employee.id %>" class="bg-orang-500 text-white px-2 py-1 rounded-md hover:bg-orange-600">Ubah</a>
+                    </td>
+                    <td class="px-4 py-2 border-b">
+                        <a href="/delete_employee/<%= employee.id %>" onclick="return confirm('Apa anda yakin ingin menghapus data pegawai ini?');" class="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600">Hapus</a>
+                    </td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+  </body>
+</html>

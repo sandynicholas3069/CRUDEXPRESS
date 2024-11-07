@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ubah Pegawai</title>
+    <link href="/css/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gradient-to-r from-gray-800 to-gray-900 min-h-screen py-20">
+    <div class="container mx-auto p-8">
+        <h1 class="text-4xl font-bold text-green-400 text-center mb-20">
+            Ubah Pegawai
+        </h1>
+        <div class="bg-gray-900 shadow-lg rounded-lg p-8">
+            <form action="/update_employee/<%= employee.id %>" method="POST">
+                <div class="mb-4">
+                    <label for="nama" class="block text-sm font-medium text-green-300">Nama</label>
+                    <input type="text" name="nama" id="nama" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.nama %>" required/>
+                </div>
+                <div class="mb-4">
+                    <label for="jenis_kelamin" class="block text-sm font-medium text-green-300">Jenis Kelamin</label>
+                    <select name="jenis_kelamin" id="jenis_kelamin" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" required>
+                        <option value="L" <%= employee.jenis_kelamin === 'L' ? 'selected' : '' %>>Laki-Laki</option>
+                        <option value="P" <%= employee.jenis_kelamin === 'P' ? 'selected' : '' %>>Perempuan</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="tanggal_lahir" class="block text-sm font-medium text-green-300">Tanggal Lahir</label>
+                    <input type="date" name="tanggal_lahir" id="tanggal_lahir" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.tanggal_lahir %>" required/>
+                </div>
+                <div class="mb-4">
+                    <label for = "alamat" class="block text-sm font-medium text-green-300">Alamat</label>
+                    <textarea name="alamat" id="alamat" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" required><%= employee.alamat %></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="email"class="block text-sm font-medium text-green-300">Email</label>
+                    <input type="email" name="email" id="email" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.email %>" required/>
+                </div>
+                <div class="mb-4">
+                    <label for="nomor_telepon" class="block text-sm font-medium text-green-300">Nomor Telepon</label>
+                    <input type="text" name="nomor_telepon" id="nomor_telepon" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.nomor_telepon %>" required/>
+                </div>
+                <div class="mb-4">
+                    <label for="posisi" class="block text-sm font-medium text-green-300">Jabatan</label>
+                    <input type="text" name="posisi" id="posisi" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.posisi %>" required/>
+                </div>
+                <div class="mb-4">
+                    <label for="gaji" class="block text-sm font-medium text-green-300">Gaji</label>
+                    <input type="number" name="gaji" id="gaji" class="mt-1 block w-full p-2 border border-gray-700 bg-gray-700 text-green-300 rounded-md focus:ring focus:ring-green-500" value="<%= employee.gaji %>" required/>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="w-full px-4 py-2 bg-green-600 text-white font-semibold rounded-md shadow-lg hover:bg-green-700 focus:ring focus:ring-green-500">Ubah</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </body>
+</html>
