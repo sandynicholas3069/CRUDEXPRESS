@@ -15,4 +15,4 @@ db.connect((err) => {
     console.log("Connected to MySQL database");
 });
 
-MediaSourceHandle.exports = db;
+module.exports = db;
